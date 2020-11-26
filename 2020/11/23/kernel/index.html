@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kernel dalam Linux - Faishal Munir</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Faishal,"> 
+    <meta name="description" content="Definisi KernelKernel adalah tingkat terendah dari perangkat lunak yang dapat diganti dengan mudah ,"> 
+    <meta name="author" content="Faishal Misbahul Munir"> 
+    <link rel="alternative" href="atom.xml" title="Faishal Munir" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Faishal Munir</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://www.msfaishal.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Kernel dalam Linux</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Kernel dalam Linux</h1>
+        <div class="stuff">
+            <span>November 23, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="Definisi-Kernel"><a href="#Definisi-Kernel" class="headerlink" title="Definisi Kernel"></a>Definisi Kernel</h2><p><a target="_blank" rel="noopener" href="https://kernel.org/">Kernel</a> adalah tingkat terendah dari perangkat lunak yang dapat diganti dengan mudah yang berhubungan dengan perangkat keras di komputer kita. Ini bertanggung jawab untuk menghubungkan semua aplikasi Anda yang berjalan dalam “mode pengguna” ke perangkat keras fisik, dan memungkinkan proses, yang dikenal sebagai server, untuk mendapatkan informasi dari satu sama lain menggunakan komunikasi antar-proses (IPC).</p>
+<hr>
+<h2 id="Jenis-Kernel"><a href="#Jenis-Kernel" class="headerlink" title="Jenis Kernel"></a>Jenis Kernel</h2><p>Tentu saja ada berbagai cara untuk membangun kernel dan pertimbangan arsitektural saat membangunnya dari awal. Secara umum, kebanyakan kernel termasuk dalam salah satu dari tiga jenis: <code>Monolithic, Microkernel, and Hybrid</code>. Linux adalah kernel <code>monolithic</code> sedangkan OS X (XNU) dan Windows 7 menggunakan kernel <code>hybrid</code>.</p>
+<p><b>Microkernel</b><br>Mikrokernel hanya mengelola apa yang dimilikinya: CPU, memori, dan IPC. Hampir semua hal lain di komputer dapat dilihat sebagai aksesori dan dapat ditangani dalam mode pengguna. Microkernels memiliki keunggulan portabilitas karena mereka tidak perlu khawatir jika kita mengganti kartu video atau bahkan sistem operasi kita, selama sistem operasi tersebut masih bisa mengakses perangkat keras dengan cara yang sama. Microkernels juga memiliki footprint yang sangat kecil, baik untuk memori maupun ruang instal, dan cenderung lebih aman karena hanya proses tertentu yang berjalan dalam mode pengguna yang tidak memiliki izin tinggi sebagai mode supervisor.</p>
+<pre><code>Kelebihan:
+    - Lebih Portable.
+    - Footprint installer yang kecil.
+    - Proses memori kecil.
+    - Memerlukan izin tinggi untuk supervisor.
+
+Kekurangan:
+    - Perangkat keras lebih teracak melalui driver.
+    - Perangkat keras mungkin bereaksi lebih lambat karena driver berada dalam mode pengguna.
+    - Proses harus menunggu dalam antrian untuk mendapatkan informasi.
+    - Proses tidak bisa mendapatkan akses ke proses lain tanpa menunggu.</code></pre>
+<p><b>Monolithic Kernel</b></p>
+<p>Kernel monolitik adalah kebalikan dari microkernels karena mereka tidak hanya mencakup CPU, memori, dan IPC, tetapi juga mencakup hal-hal seperti driver perangkat, manajemen sistem file, dan panggilan server sistem. Kernel monolitik cenderung lebih baik dalam mengakses perangkat keras dan multitasking karena jika sebuah program perlu mendapatkan informasi dari memori atau proses lain yang sedang berjalan, program tersebut memiliki jalur yang lebih langsung untuk mengaksesnya dan tidak perlu menunggu dalam antrian untuk menyelesaikan sesuatu. Namun hal ini dapat menyebabkan masalah karena semakin banyak hal yang dijalankan dalam mode supervisor, semakin banyak hal yang dapat menurunkan sistem Anda jika tidak berperilaku dengan benar.</p>
+<pre><code>Kelebihan:
+    - Lebih banyak akses langsung ke perangkat keras untuk program.
+    - Lebih mudah untuk proses untuk berkomunikasi satu sama lain.
+    - Jika perangkat kita terdukung, akan bisa berjalan tanpa instalasi tambahan.
+    - Proses bereaksi lebih cepat karena tidak ada antrian untuk waktu prosesor.
+
+Kekurangan:
+    - Footprint installer sangat besar.
+    - Membutuhkan Footprint Memori besar.
+    - Kurang aman karena semuanya berjalan dalam mode supervisor.</code></pre>
+<p><b>Hybrid Kernel</b></p>
+<p>Kernel hybrid memiliki kemampuan untuk mengambil dan memilih apa yang ingin dijalankan dalam mode pengguna dan apa yang ingin dijalankan dalam mode supervisor. Seringkali hal-hal seperti driver perangkat dan sistem file I / O akan dijalankan dalam mode pengguna sementara IPC dan panggilan server akan disimpan dalam mode supervisor. Ini memberikan yang terbaik dari kedua dunia tetapi seringkali akan membutuhkan lebih banyak pekerjaan dari pabrikan perangkat keras karena semua tanggung jawab pengemudi ada di tangan mereka. Ini juga dapat memiliki beberapa masalah latensi yang melekat pada microkernels.</p>
+<pre><code>Kelebihan:
+    - Pengembang dapat memilih dan memilih apa yang berjalan 
+        dalam mode pengguna dan apa yang berjalan dalam mode supervisor
+    - Installer footprint lebih kecil daripada Kernel Monolitik
+    - Lebih Fleksibel
+
+Kekurangan:
+    - Dapat mengalami kelambatan proses yang sama seperti mikrokernel
+    - Driver perangkat perlu dikelola oleh pengguna (biasanya)</code></pre>
+<h2 id="Dimana-letak-Kernel-pada-Linux"><a href="#Dimana-letak-Kernel-pada-Linux" class="headerlink" title="Dimana letak Kernel pada Linux?"></a>Dimana letak Kernel pada Linux?</h2><p>File kernel, di Ubuntu, disimpan di folder <code>/boot</code> Anda dan disebut <code>vmlinuz-version</code>. Nama vmlinuz berasal dari dunia unix tempat mereka biasa menyebut kernel mereka dengan “unix” di tahun 60-an sehingga Linux mulai memanggil kernel mereka “linux” saat pertama kali dikembangkan di tahun 90-an.</p>
+<p>Ketika memori virtual dikembangkan untuk kemampuan multitasking yang lebih mudah, “vm” diletakkan di depan file untuk menunjukkan bahwa kernel mendukung memori virtual. Untuk sementara kernel Linux disebut vmlinux, tetapi kernel tumbuh terlalu besar untuk dimasukkan ke dalam memori boot yang tersedia sehingga imej kernel dikompresi dan akhiran x diubah menjadi z untuk menunjukkan bahwa ia dikompresi dengan kompresi <code>zlib</code>. Kompresi yang sama ini tidak selalu digunakan, sering diganti dengan <code>LZMA</code> atau <code>BZIP2</code>, dan beberapa kernel hanya disebut zImage.</p>
+<p>Penomoran versi akan menggunakan format A.B.C.D di mana A.B mungkin 2.6, C adalah versi Anda, dan D menunjukkan patch atau perbaikan Anda.</p>
+<p><img src="https://i.imgur.com/ik6yCvm.png" alt="kernelubuntu"></p>
+<p>Di folder <code>/boot</code> juga akan ada file sangat penting lainnya bernama <code>initrd.img-version, system.map-version, dan config-version</code>. File <code>initrd </code>digunakan sebagai disk RAM kecil yang mengekstrak dan menjalankan file kernel yang sebenarnya. File <code>system.map</code> digunakan untuk manajemen memori sebelum kernel dimuat sepenuhnya, dan file konfigurasi memberi tahu kernel opsi dan modul apa yang akan dimuat ke dalam imej kernel ketika kernel sedang dikompilasi.</p>
+<h2 id="Arsitektur-Kernel-pada-Linux"><a href="#Arsitektur-Kernel-pada-Linux" class="headerlink" title="Arsitektur Kernel pada Linux"></a>Arsitektur Kernel pada Linux</h2><p>Karena kernel Linux bersifat monolitik, ia memiliki footprint terbesar dan paling rumit dibandingkan jenis kernel lainnya. Ini adalah <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Tanenbaum%E2%80%93Torvalds_debate">fitur desain</a> yang sedikit diperdebatkan di masa-masa awal Linux dan masih membawa beberapa kekurangan desain yang sama yang dimiliki oleh kernel monolitik.</p>
+<p>Satu hal yang dilakukan pengembang kernel Linux untuk mengatasi kekurangan ini adalah membuat modul kernel yang dapat dimuat dan dibongkar saat runtime, yang berarti Anda dapat menambah atau menghapus fitur kernel dengan cepat. Ini bisa lebih dari sekadar menambahkan fungsionalitas perangkat keras ke kernel, dengan memasukkan modul yang menjalankan proses server, seperti virtualisasi tingkat rendah, tetapi juga dapat memungkinkan seluruh kernel diganti tanpa perlu mem-boot ulang komputer Anda dalam beberapa kasus.</p>
+<h2 id="Modul-Kernel"><a href="#Modul-Kernel" class="headerlink" title="Modul Kernel"></a>Modul Kernel</h2><p><img src="https://i.imgur.com/Naav7PV.png" alt="arlinux"></p>
+<p>Bagaimana jika Windows memiliki semua driver yang tersedia dan Anda hanya perlu mengaktifkan driver yang Anda butuhkan? Pada dasarnya itulah yang dilakukan modul kernel untuk Linux. Modul kernel, juga dikenal sebagai modul kernel yang dapat dimuat (LKM), sangat penting untuk menjaga kernel berfungsi dengan semua perangkat keras Anda tanpa menghabiskan semua memori yang tersedia.</p>
+<p>Sebuah modul biasanya menambahkan fungsionalitas ke kernel dasar untuk hal-hal seperti perangkat, sistem file, dan panggilan sistem. LKM memiliki ekstensi file <code>.ko</code> dan biasanya disimpan di direktori <code>/lib/modules</code>. Karena sifatnya yang modular, Anda dapat dengan mudah menyesuaikan kernel Anda dengan mengatur modul untuk dimuat, atau tidak memuat, selama startup dengan perintah menuconfig atau dengan mengedit file <code>/boot/config</code> Anda, atau Anda dapat memuat dan melepas modul dengan cepat dengan modprobe perintah.</p>
+<p>Modul pihak ketiga dan sumber tertutup tersedia di beberapa distribusi, seperti Ubuntu, dan mungkin tidak diinstal secara default karena kode sumber untuk modul tidak tersedia. Pengembang perangkat lunak (misalnya nVidia, ATI, dan lain-lain) tidak menyediakan kode sumber tetapi mereka membangun modul mereka sendiri dan mengkompilasi file <code>.ko</code> yang diperlukan untuk distribusi. Meskipun modul-modul ini mudah dimengerti, karenanya tidak disertakan oleh beberapa distribusi karena pengelola merasa itu “mencemari” kernel dengan menyediakan perangkat lunak secara berbayar.</p>
+<p>Kernel bukanlah sihir, tetapi sangat penting untuk komputer mana pun yang berjalan dengan baik. Kernel Linux berbeda dari OS X dan Windows karena ia menyertakan driver pada tingkat kernel dan membuat banyak hal didukung “di luar kotak”. Semoga Anda tahu lebih banyak tentang bagaimana perangkat lunak dan perangkat keras Anda bekerja bersama dan file apa yang Anda butuhkan untuk mem-boot komputer Anda.</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='/music/1.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='true'
+        data-ae='false'
+        data-ci='efe5dc634e30cd97735e'
+        data-cs='659e3ac64fcbf22cf3de35cef74879ff8229a0b3'
+        data-r='https://github.com/faishalmunir/faishalmunir.github.io.git'
+        data-o='syouryuumaru'
+        data-a='syouryuumaru'
+        data-d='false'
+    >ini</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

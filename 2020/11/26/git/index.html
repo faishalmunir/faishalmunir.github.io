@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>What is Git? - Faishal Munir</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Faishal,"> 
+    <meta name="description" content="Apa itu Git?Git adalah sistem versi kontrol yang paling umum digunakan saat ini dan dengan cepat me,"> 
+    <meta name="author" content="Faishal Misbahul Munir"> 
+    <link rel="alternative" href="atom.xml" title="Faishal Munir" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Faishal Munir</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://www.msfaishal.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">What is Git?</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">What is Git?</h1>
+        <div class="stuff">
+            <span>November 26, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="Apa-itu-Git"><a href="#Apa-itu-Git" class="headerlink" title="Apa itu Git?"></a>Apa itu Git?</h2><p>Git adalah sistem versi kontrol yang paling umum digunakan saat ini dan dengan cepat menjadi <a target="_blank" rel="noopener" href="https://insights.stackoverflow.com/survey/2015#tech-sourcecontrol">standar untuk versi kontrol</a>. Git bersistem kontrol versi terdistribusi, yang berarti salinan kode lokal kita terkontrol secara penuh di repositori. Repositori lokal yang berfungsi penuh ini memudahkan untuk bekerja secara offline atau dari jarak jauh. Anda mengikat pekerjaan Anda secara lokal, lalu menyinkronkan salinan repositori Anda dengan salinan di server. Paradigma ini berbeda dengan kontrol versi terpusat di mana klien harus menyinkronkan kode dengan server sebelum membuat kode versi baru.</p>
+<p>Fleksibilitas dan popularitas Git menjadikannya pilihan yang tepat untuk tim mana pun. Banyak developer dan lulusan perguruan tinggi sudah mengetahui cara menggunakan Git. Komunitas pengguna Git telah menciptakan banyak sumber daya untuk melatih pengembang dan popularitas Git memudahkan Anda untuk mendapatkan bantuan saat Anda membutuhkannya. Hampir setiap lingkungan pengembangan memiliki dukungan Git dan alat baris perintah Git berjalan di setiap sistem operasi utama.</p>
+<hr>
+<h2 id="Dasar-dasar-Git"><a href="#Dasar-dasar-Git" class="headerlink" title="Dasar - dasar Git"></a>Dasar - dasar Git</h2><p>Setiap kali Anda menyimpan pekerjaan kita, kita akan membuat <code>commit</code> di Git. <code>Commit</code> adalah snapshot dari semua file Anda pada satu titik waktu. Jika sebuah file tidak berubah dari satu <code>commit</code> ke <code>commit</code> berikutnya, Git menggunakan file yang disimpan sebelumnya. Desain ini berbeda dari sistem lain yang menyimpan versi awal file dan menyimpan catatan delta dari waktu ke waktu.<br><img src="https://i.imgur.com/EfXidGq.png" alt="Commit"></p>
+<p><code>Commit</code> membuat tautan ke <code>Commit</code> lain, membentuk grafik riwayat development. Kita dapat mengembalikan kode ke <code>commit</code> sebelumnya, memeriksa bagaimana file berubah dari satu <code>Commit</code> ke <code>commit</code> berikutnya, dan meninjau informasi seperti di mana dan kapan perubahan dibuat. <code>commit</code> diidentifikasi di Git oleh hash kriptografi unik dari konten <code>commit</code>. Karena semuanya berciri - ciri, tidak mungkin membuat adanya perubahan, kehilangan informasi, atau merusak file tanpa Git mendeteksinya.</p>
+<hr>
+<h2 id="Branches-dalam-Git"><a href="#Branches-dalam-Git" class="headerlink" title="Branches dalam Git"></a>Branches dalam Git</h2><p>Setiap Developer menyimpan perubahan repositori kode lokalnya sendiri. Karena itu kita dapat memiliki banyak perubahan berbeda berdasarkan <code>commit</code> yang sama. Git menyediakan alat untuk mengisolasi perubahan dan kemudian menggabungkannya kembali. <code>Branches</code>, yang merupakan petunjuk ringan untuk pekerjaan yang sedang berjalan dan mengelola pemisahan repositori pada git. Setelah pekerjaan kita dibuat di <code>branch</code> selesai, kita bisa menggabungkan kembali ke cabang utama (atau master) pada repositori.<br><img src="https://i.imgur.com/34itwDW.png" alt="Branches"></p>
+<hr>
+<h2 id="File-dan-Commits"><a href="#File-dan-Commits" class="headerlink" title="File dan Commits"></a>File dan Commits</h2><p>File di Git memiliki salah satu dari tiga status: <code>modified, staged, or committed</code>. Saat kita pertama kali mengubah file, perubahan hanya ada di direktori kerja kita. Mereka belum menjadi bagian dari <code>committ</code> atau riwayat development. Kita harus mengatur file yang ingin diubah sertakan dalam <code>commit</code> (Kita dapat menghilangkan file yang ingin Anda <code>commit</code> secara terpisah). Area Stagging berisi semua perubahan yang akan kita sertakan dalam <code>commit</code> berikutnya. Setelah kita puas dengan file tersebut, lakukan dengan pesan diskripsi yang menjelaskan apa yang berubah. <code>Commit</code> ini menjadi bagian dari riwayat development.<br><img src="https://i.imgur.com/eTn3fLu.png" alt="filecommit"></p>
+<p>Staging memungkinkan kita memilih perubahan file mana yang akan disimpan dalam <code>commit</code> sehingga kita dapat memecah perubahan besar menjadi serangkaian <code>commit</code> yang lebih kecil. Saat kita mengurangi ruang lingkup <code>commit</code>, akan lebih mudah untuk meninjau riwayat <code>commit</code> untuk menemukan perubahan file tertentu.</p>
+<hr>
+<h2 id="Manfaat-Git"><a href="#Manfaat-Git" class="headerlink" title="Manfaat Git"></a>Manfaat Git</h2><h4 id="Simultaneous-development"><a href="#Simultaneous-development" class="headerlink" title="- Simultaneous development"></a>- Simultaneous development</h4>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='/music/1.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='true'
+        data-ae='false'
+        data-ci='efe5dc634e30cd97735e'
+        data-cs='659e3ac64fcbf22cf3de35cef74879ff8229a0b3'
+        data-r='https://github.com/faishalmunir/faishalmunir.github.io.git'
+        data-o='syouryuumaru'
+        data-a='syouryuumaru'
+        data-d='false'
+    >ini</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
